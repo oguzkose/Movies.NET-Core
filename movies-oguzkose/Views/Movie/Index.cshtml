@@ -1,0 +1,49 @@
+﻿@model List<MovieViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class=text-center>Filmler</h1>
+<div class="col-md-3">@Html.ActionLink("Film Ekle", "Add", "Movie") </div>
+<br />
+<br />
+<br />
+
+<div class="container-fluid"style="width:1170px;">
+    <div class="row">
+        <div class="col-md-1 ">Sıra No</div>
+        <div class="col-md-1 ">Film Adı</div>
+        <div class="col-md-1 ">Yönetmen</div>
+        <div class="col-md-1 ">Oyuncular</div>
+        <div class="col-md-1 ">Çıkış Yılı</div>
+        <div class="col-md-1 ">Senarist</div>
+        <div class="col-md-1 ">Kategory</div>
+        <div class="col-md-1 ">Puan</div>
+        <div class="col-md-1 ">Puanlama Sayısı</div>
+        <div class="col-md-3 ">Imdb URL</div>
+    </div>
+    <hr />
+    <br />
+    <br />
+    @foreach (var movie in Model)
+    {
+        <div class="row">
+            <div class="col-md-1 table-bordered"><p>@movie.Id</p></div>
+            <div class="col-md-1 table-bordered"><p>@movie.Name</p></div>
+            <div class="col-md-1"><p>@movie.Director</p></div>
+            <div class="col-md-1"><p>@movie.Cast</p></div>
+            <div class="col-md-1"><p>@movie.ReleaseYear</p></div>
+            <div class="col-md-1"><p>@movie.Writer</p></div>
+            <div class="col-md-1 table-bordered"><p>@movie.Category</p></div>
+            <div class="col-md-1 table-bordered"><p>@movie.Score</p></div>
+            <div class="col-md-1"><p>@movie.Review</p></div>
+            <div class="col-md-3"><p>@movie.ImdbUrl</p></div>
+            <div class="col-md-1"><a class="btn btn-primary" href="Movie/Edit?id=@movie.Id">Düzenle</a></div>
+            <div class="col-md-1"><a class="btn btn-danger" href="Movie/Delete?id=@movie.Id">Sil</a></div>
+        </div>
+        <hr />
+    }   
+</div>
+
+
+

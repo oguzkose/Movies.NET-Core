@@ -1,0 +1,72 @@
+﻿@model MovieViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+
+{
+    <div class="container">
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Id, "Sıra No:", new { @class = "col-md-2 col-form-label" })
+            @Html.Label(Model.Id.ToString())
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Name, "Film Adı:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Name, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Name, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Director, "Yönetmen:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Director, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Director, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Cast, "Oyuncular:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Cast, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Cast, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.ReleaseYear, "Çıkış Yılı:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.ReleaseYear, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.ReleaseYear, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Writer, "Senarist:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Writer, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Writer, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Category, "Kategori:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Category, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Category, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Score, "Puan:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Score, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Score, null, new { @class = "col-md-3 text-danger" })
+        </div>        
+        <div class="form-group row">
+            @Html.LabelFor(x => x.Review, "Puanlama Sayısı:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.Review, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.Review, null, new { @class = "col-md-3 text-danger" })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => x.ImdbUrl, "Imdb URL:", new { @class = "col-md-2 col-form-label" })
+            @Html.TextBoxFor(x => x.ImdbUrl, new { @class = "col-md-5 col-form-label" })
+            @Html.ValidationMessageFor(x => x.ImdbUrl, null, new { @class = "col-md-3 text-danger" })
+        </div>
+
+        <div class="form-group row">
+            <button class="btn btn-primary" type="submit">Kaydet</button>
+            <button>
+                @Html.ActionLink("Filmlerime Dön", "Index", "Movie",
+new { target = "_blank", name = "link", style = "color : red" })
+            </button>
+        </div>
+
+    </div>
+}
+
